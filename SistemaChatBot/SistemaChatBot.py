@@ -12,8 +12,8 @@ class SistemaChatBot:
         self.__bot = None
     
     def boas_vindas(self):
-        pass
         ##mostra mensagem de boas vindas do sistema
+        print(f'Olá esse é o sistema de chatbots da empresa {self.__empresa}')
 
     def mostra_menu(self):
         pass
@@ -32,8 +32,8 @@ class SistemaChatBot:
         ##faz a entrada de dados do usuário e executa o comando no bot ativo
 
     def inicio(self):
-        pass
         ##mostra mensagem de boas-vindas do sistema
+        self.boas_vindas()
         ##mostra o menu ao usuário
         ##escolha do bot      
         ##mostra mensagens de boas-vindas do bot escolhido
