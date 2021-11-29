@@ -16,7 +16,9 @@ class SistemaChatBot:
         print(f'Olá esse é o sistema de chatbots da empresa {self.__empresa}')
 
     def mostra_menu(self):
-        pass
+        print('Os bots disponiveis no momento são:')
+        for number, bot in enumerate(self.__lista_bots):
+            print(f'{number + 1} - Bot: {bot.nome} - Mensagem de apresentação {bot.apresentacao()}')
         ##mostra o menu de escolha de bots
     
     def escolhe_bot(self):
@@ -35,6 +37,7 @@ class SistemaChatBot:
         ##mostra mensagem de boas-vindas do sistema
         self.boas_vindas()
         ##mostra o menu ao usuário
+        self.mostra_menu()
         ##escolha do bot      
         ##mostra mensagens de boas-vindas do bot escolhido
         ##entra no loop de mostrar comandos do bot e escolher comando do bot até o usuário definir a saída
