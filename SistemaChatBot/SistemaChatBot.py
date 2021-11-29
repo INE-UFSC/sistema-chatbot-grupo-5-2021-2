@@ -6,7 +6,7 @@ class SistemaChatBot:
         ##verificar se a lista de bots contém apenas bots
         for bot in lista_bots:
             if not isinstance(bot, Bot):
-                erro = f'{type(bot)}, não é Bot'
+                erro = f'{bot} é do tipo {type(bot)} e não Bot'
                 raise TypeError(erro)
         self.__lista_bots = lista_bots
         self.__bot = None
