@@ -1,5 +1,3 @@
-import sys
-
 from Bots.Bot import Bot
 
 class SistemaChatBot:
@@ -56,3 +54,4 @@ class SistemaChatBot:
             if escolha == "-1":
                 break
         ##ao sair mostrar a mensagem de despedida do bot
+        self.__bot.despedida()
