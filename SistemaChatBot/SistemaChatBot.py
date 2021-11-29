@@ -27,7 +27,7 @@ class SistemaChatBot:
         ##faz a entrada de dados do usuário e atribui o objeto ao atributo __bot 
 
     def mostra_comandos_bot(self):
-        pass
+        self.__bot.mostra_comandos()
         ##mostra os comandos disponíveis no bot escolhido
 
     def le_envia_comando(self):
@@ -42,5 +42,6 @@ class SistemaChatBot:
         ##escolha do bot
         self.escolhe_bot()
         ##mostra mensagens de boas-vindas do bot escolhido
+        self.__bot.boas_vindas()
         ##entra no loop de mostrar comandos do bot e escolher comando do bot até o usuário definir a saída
         ##ao sair mostrar a mensagem de despedida do bot
