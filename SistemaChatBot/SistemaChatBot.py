@@ -1,7 +1,7 @@
 from Bots.Bot import Bot
 
 class SistemaChatBot:
-    def __init__(self, nomeEmpresa: str, lista_bots: [Bot]):
+    def __init__(self, nomeEmpresa: str, lista_bots: []):
         self.__empresa = nomeEmpresa
         ##verificar se a lista de bots contém apenas bots
         for bot in lista_bots:
