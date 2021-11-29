@@ -1,3 +1,5 @@
+import sys
+
 from Bots.Bot import Bot
 
 class SistemaChatBot:
@@ -32,7 +34,10 @@ class SistemaChatBot:
 
     def le_envia_comando(self):
         escolha = str(input('Digite o comando desejado (ou -1 fechar o programa e sair): '))
-        return escolha
+        if escolha == '-1':
+            return "-1"
+        else:
+            self.__bot.executa_comando(escolha)
         ##faz a entrada de dados do usuário e executa o comando no bot ativo
 
     def inicio(self):
@@ -48,8 +53,6 @@ class SistemaChatBot:
         while True:
             self.mostra_comandos_bot()
             escolha = self.le_envia_comando()
-            if escolha == '-1':
+            if escolha == "-1":
                 break
-            else:
-                self.__bot.executa_comando(escolha)
         ##ao sair mostrar a mensagem de despedida do bot
