@@ -41,4 +41,4 @@ class BotManezinho(Bot):
         return f"Me excolhesse mesmo, és um baita, feio!"
 
     def despedida(self):
-        return f"Valeu pelo papo, nego, dazumbanho! Agora segue reto toda vida que eu vou me ajojar aqui"
+        print("Valeu pelo papo, nego, dazumbanho! Agora segue reto toda vida que eu vou me ajojar aqui")
