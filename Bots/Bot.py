@@ -22,11 +22,7 @@ class Bot(ABC):
         return self.__comandos
 
     def mostra_comandos(self):
-        count = 0
-        for comando in self.comandos:
-            count += 1
-            print(f'{count} - {comando}')
-
+        return self.comandos
 
     @abstractmethod
     def executa_comando(self,cmd):
