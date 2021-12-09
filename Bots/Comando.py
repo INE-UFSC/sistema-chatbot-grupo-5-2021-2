@@ -11,4 +11,3 @@ class Comando():
     def resposta(self):
         return self.__resposta
 
-    
