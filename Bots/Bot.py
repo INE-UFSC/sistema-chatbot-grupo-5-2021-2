@@ -1,13 +1,11 @@
-##implemente as seguintes classes
-
 from abc import ABC, abstractmethod
-import random as r
+from Comando import Comando
 
 class Bot(ABC):
 
-    def __init__(self, nome):
+    def __init__(self, nome, comandos=[]):
         self.__nome = nome
-        self.__comandos = {}
+        self.__comandos = comandos
 
     @property
     def nome(self):
@@ -21,12 +19,23 @@ class Bot(ABC):
     def comandos(self):
         return self.__comandos
 
-    def mostra_comandos(self):
-        return self.comandos
+    def adiciona_comando(self, comando, resposta):
+        novo_comando = Comando(comando, resposta)
 
-    @abstractmethod
-    def executa_comando(self,cmd):
-        pass
+    def remove_comando(self, comando):
+        if comando in self.comandos:
+            self.comandos.remove(comando)
+
+    def mostra_comandos(self):
+        for i, comando in enumerate(self.comandos):
+            print(f'{i} - {comando.pergunta}')
+
+    def executa_comando(self, comando):
+        if comando.isnumeric() and (comando < len(self.comandos)):
+            print(f'--> {self.nome} diz: Você disse "{self.comandos[comando]}"')
+            print(f' --> Eu te respondo: "{self.comandos[comando].resposta}"')
+        else:
+            print(f'Digite um comando válido.')
 
     @abstractmethod
     def boas_vindas():
