@@ -1,53 +1,42 @@
-#grupo 3
-
 from datetime import datetime
 from Bots.Bot import Bot
+from Bots.Comando import Comando
 
 class BotGamer(Bot):
     def __init__(self,nome):
         self.__nome = nome
-        self.__comandos = {
-            "Como está seu dia hoje?": "Contando que agora são " + datetime.now().strftime('%H:%M') + "já ganhei mais de 10 ranqueadas no Rainbow Six",
-            "Quem é seu criador?": "Meu criador é o Grupo 3, do Curso de POO 2!", 
-            "Qual seu jogo favorito?": "Meu jogo favorito é o Counter Strike: GO", 
-            "Qual seu rank no seu jogo favorito?": "Sendo bem modesto, sou Global 😎", 
-        }
+        self.__comandos = [
+            Comando('Como está seu dia hoje?', f'Contando que agora são {datetime.now().strftime("%H:%M")} já ganhei mais de 10 ranqueadas no Rainbow Six'),
+            Comando('Quem é seu criador?', 'Meu criador é o Grupo 3, do Curso de POO 2!'), 
+            Comando('Qual seu jogo favorito?', 'Meu jogo favorito é o Counter Strike: GO'), 
+            Comando('Qual seu rank no seu jogo favorito?', 'Sendo bem modesto, sou Global 😎')]
+        self.__mensagem_de_erro = 'Game over!'
 
-    #nao esquecer o decorator
     @property
     def nome(self):
         return self.__nome
 
-    #nao esquecer o decorator
     @nome.setter
-    def nome(self, novo_nome: int):
-        self.__nome = novo_nome
-    
+    def nome(self, nome):
+        self.__nome = nome
+
     @property
     def comandos(self):
         return self.__comandos
 
-    @comandos.setter
-    def comandos(self, novo_comandos: int):
-        self.__comandos = novo_comandos
+    @property
+    def mensagem_de_erro(self):
+        return self.__mensagem_de_erro
+
+    @mensagem_de_erro.setter
+    def mensagem_de_erro(self, mensagem_de_erro):
+        self.__mensagem_de_erro = mensagem_de_erro
 
     def apresentacao(self):
-        msg = f"{self.nome}: Eu sou o {self.nome}! O bot mais insano desse sistema."
-        return msg
- 
-    def mostra_comandos(self):
-        return self.comandos
-
-    def executa_comando(self,cmd):
-        try:
-            return self.comandos[cmd]
-        except:
-            print("Você perdeu pontos por isso...")
+        return f'Eu sou o {self.nome}! O bot mais insano desse sistema.'
 
     def boas_vindas(self):
-        msg = self.nome + ": Olá jogadô, eu sou seu novo parceiro de equipe!"
-        return msg
+        return 'Olá jogadô, eu sou seu novo parceiro de equipe!'
 
     def despedida(self):
-        msg = self.nome + ": Até a próxima partida meu parceiro!"
-        return msg
+        return 'Até a próxima partida meu parceiro!'
