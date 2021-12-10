@@ -7,8 +7,11 @@ from Bots.BotMarombeiro import BotMarombeiro
 from SistemaChatBot import SistemaChatBot as scb
 
 ###construa a lista de bots disponíveis aqui
-lista_bots = [BotMinerin("João"), BotManezinho('Ixtepô'), BotEspelhado('ohnidahlepsE'), 
-              BotGamer('Coldzera'), BotMarombeiro('Stronda')]
+lista_bots = [  BotMinerin("João"), 
+                BotManezinho('Ixtepô'), 
+                BotEspelhado('ohnidahlepsE'), 
+                BotGamer('Coldzera'), 
+                BotMarombeiro('Stronda')]
 
 sys = scb.SistemaChatBot("GoBots", lista_bots)
 sys.inicio()
