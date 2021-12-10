@@ -8,6 +8,7 @@ class SistemaChatBot:
         for bot in lista_bots:
             if not isinstance(bot, Bot):
                 erro = f'{bot} é do tipo {type(bot)} e não Bot'
+                self.lista_bots.remove(bot)
                 raise TypeError(erro)
         self.__lista_bots = lista_bots
         self.__bot = None
@@ -37,14 +38,15 @@ class SistemaChatBot:
         print(f'Olá esse é o sistema de chatbots da empresa {self.empresa}')
 
     def mostra_menu(self):
-        print('Os bots disponiveis no momento são:')
+        print('\nOs bots disponiveis no momento são:')
         for number, bot in enumerate(self.lista_bots):
             print(f'{number} - Bot: {bot.nome} - Mensagem de apresentação: {bot.apresentacao()}')
         ##mostra o menu de escolha de bots
     
     def escolhe_bot(self):
-        escolha = int(input('Digite o número do chat bot desejado: '))
+        escolha = int(input('\nDigite o número do chat bot desejado: '))
         self.bot = self.lista_bots[escolha]
+        print(f'\n--> {self.bot.nome} diz: {self.bot.boas_vindas()}')
         ##faz a entrada de dados do usuário e atribui o objeto ao atributo __bot 
 
     def mostra_comandos_bot(self):
@@ -56,8 +58,7 @@ class SistemaChatBot:
             return '-1'
         else:
             self.bot.executa_comando(escolha)
-            print()
-            time.sleep(2)
+            time.sleep(1)
         ##faz a entrada de dados do usuário e executa o comando no bot ativo
 
     def inicio(self):
@@ -74,7 +75,7 @@ class SistemaChatBot:
             self.mostra_comandos_bot()
             escolha = self.le_envia_comando()
             if escolha == "-1":
-                print(self.bot.despedida())
-                time.sleep(3)
+                print(f'--> {self.bot.nome} diz: {self.bot.despedida()}')
+                time.sleep(1)
                 break
-        ##ao sair mostrar a mensagem de despedida do bo
+        ##ao sair mostrar a mensagem de despedida do bot
